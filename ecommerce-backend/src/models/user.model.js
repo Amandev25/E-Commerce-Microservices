@@ -14,10 +14,9 @@ const userSchema = new mongoose.Schema(
 
 // Runs automatically right before a user is saved.
 // It hashes the password so we never store the real one.
-userSchema.pre('save', async function (next) {
-  if (!this.isModified('password')) return next(); // skip if password didn't change
+userSchema.pre('save', async function () {
+  if (!this.isModified('password')) return; // skip if password didn't change
   this.password = await bcrypt.hash(this.password, 10);
-  next();
 });
 
 // A helper we can call on a user: user.comparePassword('typed password')

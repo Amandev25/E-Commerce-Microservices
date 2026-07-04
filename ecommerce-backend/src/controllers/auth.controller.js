@@ -5,10 +5,10 @@ import { generateAccessToken, generateRefreshToken } from '../utils/token.js';
 
 // Settings for the refresh-token cookie (reused below).
 const cookieOptions = {
-  httpOnly: true,                       // JavaScript can't read it (safer)
-  secure: false,                        // set true in production (HTTPS only)
+  httpOnly: true,                            // JavaScript can't read it (safer)
+  secure: config.nodeEnv === 'production',   // HTTPS-only in production
   sameSite: 'strict',
-  maxAge: 7 * 24 * 60 * 60 * 1000,      // 7 days
+  maxAge: 7 * 24 * 60 * 60 * 1000,           // 7 days
 };
 
 // REGISTER -------------------------------------------------

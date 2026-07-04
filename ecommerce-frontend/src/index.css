@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global defaults that match the design. */
+@layer base {
+  body {
+    @apply bg-paper text-ink font-body;
+  }
+  /* Green text highlight when selecting, like the original design. */
+  ::selection {
+    background: #0f6b3f;
+    color: #fff;
+  }
+}
+
+/*
+  A few small reusable classes so pages stay readable. We keep MOST styling as
+  Tailwind classes directly in the components (easier to see what each element does),
+  and only extract the handful of things we repeat a lot.
+*/
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl font-semibold
+           text-sm px-5 py-3 cursor-pointer transition-colors disabled:opacity-60
+           disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-accent text-white hover:bg-accent-dark;
+  }
+  .btn-dark {
+    @apply btn bg-ink text-white hover:bg-accent;
+  }
+  .btn-secondary {
+    @apply btn bg-white text-ink border border-line3 hover:border-ink;
+  }
+  .input {
+    @apply w-full rounded-xl border border-line3 px-4 py-3 text-[14.5px] outline-none
+           focus:border-accent transition-colors bg-white;
+  }
+  .card {
+    @apply bg-white border border-line2 rounded-2xl;
+  }
+  /* Page section container — keeps everything at a consistent max width. */
+  .container-page {
+    @apply max-w-[1280px] mx-auto px-8;
+  }
+}
