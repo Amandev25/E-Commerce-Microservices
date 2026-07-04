@@ -92,13 +92,7 @@ Try the coupon **`WELCOME15`** at checkout for 15% off.
 
 ---
 
-## 📸 Screens
 
-Home · Product listing · Product detail · Cart · Checkout · Orders · Auth
-
-_(Add screenshots here — drop images in a `/screenshots` folder and reference them.)_
-
----
 
 ## 📄 License
 
