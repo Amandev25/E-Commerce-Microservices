@@ -13,6 +13,16 @@ import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
 import NotFound from './pages/NotFound.jsx';
 
+import AdminRoute from './components/admin/AdminRoute.jsx';
+import AdminLayout from './components/admin/AdminLayout.jsx';
+import AdminDashboard from './pages/admin/AdminDashboard.jsx';
+import AdminProducts from './pages/admin/AdminProducts.jsx';
+import AdminProductForm from './pages/admin/AdminProductForm.jsx';
+import AdminOrders from './pages/admin/AdminOrders.jsx';
+import AdminOrderDetail from './pages/admin/AdminOrderDetail.jsx';
+import AdminCategories from './pages/admin/AdminCategories.jsx';
+import AdminCoupons from './pages/admin/AdminCoupons.jsx';
+
 // Every route is listed here. Pages inside <Layout> get the navbar + footer.
 // Pages inside <ProtectedRoute> require the user to be logged in.
 export default function App() {
@@ -37,6 +47,21 @@ export default function App() {
         path="/orders"
         element={<ProtectedRoute><Layout><Orders /></Layout></ProtectedRoute>}
       />
+
+      {/* Admin console — admins only. AdminLayout renders the sidebar + <Outlet/>. */}
+      <Route
+        path="/admin"
+        element={<AdminRoute><AdminLayout /></AdminRoute>}
+      >
+        <Route index element={<AdminDashboard />} />
+        <Route path="products" element={<AdminProducts />} />
+        <Route path="products/new" element={<AdminProductForm />} />
+        <Route path="products/:id/edit" element={<AdminProductForm />} />
+        <Route path="orders" element={<AdminOrders />} />
+        <Route path="orders/:id" element={<AdminOrderDetail />} />
+        <Route path="categories" element={<AdminCategories />} />
+        <Route path="coupons" element={<AdminCoupons />} />
+      </Route>
 
       {/* Auth pages have their own full-screen layout (no navbar) */}
       <Route path="/login" element={<Login />} />

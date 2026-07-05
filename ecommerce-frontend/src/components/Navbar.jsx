@@ -82,6 +82,14 @@ export default function Navbar() {
           {/* Account */}
           {user ? (
             <div className="flex items-center gap-2 ml-2">
+              {user.role === 'admin' && (
+                <Link
+                  to="/admin"
+                  className="text-sm font-semibold text-white bg-ink px-3 py-2 rounded-full hover:bg-accent whitespace-nowrap"
+                >
+                  Admin
+                </Link>
+              )}
               <Link to="/orders" className="text-sm font-semibold text-ink hover:text-accent whitespace-nowrap">
                 Hi, {user.name.split(' ')[0]}
               </Link>

@@ -162,6 +162,108 @@ export const GithubArrowIcon = (p) => (
   </Svg>
 );
 
+// ---- Admin console icons ----
+export const GridIcon = (p) => (
+  <Svg {...p}>
+    <path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z" />
+  </Svg>
+);
+export const PackageIcon = (p) => (
+  <Svg {...p}>
+    <path d="M21 8 12 3 3 8v8l9 5 9-5z" />
+    <path d="M3.3 7.2 12 12l8.7-4.8" />
+    <path d="M12 12v9.5" />
+  </Svg>
+);
+export const TagIcon = (p) => (
+  <Svg {...p}>
+    <path d="M20.6 13.4 12.4 21.6a1.4 1.4 0 0 1-2 0L3 14.2V4h10.2l7.4 7.4a1.4 1.4 0 0 1 0 2z" />
+    <path d="M7.5 8h.01" />
+  </Svg>
+);
+export const ReceiptIcon = (p) => (
+  <Svg {...p}>
+    <path d="M6 2h9l4 4v14.5l-2.6-1.7-2.7 1.7-2.7-1.7L8.3 20.5 5.7 22V6z" />
+    <path d="M9 8h6M9 12h6M9 16h4" />
+  </Svg>
+);
+export const TicketIcon = (p) => (
+  <Svg {...p}>
+    <path d="M4 7a2 2 0 0 0-2 2v1a2 2 0 0 1 0 4v1a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-1a2 2 0 0 1 0-4V9a2 2 0 0 0-2-2z" />
+    <path d="M14 7v10" />
+  </Svg>
+);
+export const StarIcon = ({ filled, ...p }) => (
+  <Svg fill={filled ? 'currentColor' : 'none'} {...p}>
+    <path d="M12 2.5 15 8.9l7 1-5.1 4.9 1.2 7-6.1-3.3L5.9 21.8l1.2-7L2 9.9l7-1z" />
+  </Svg>
+);
+export const BellIcon = (p) => (
+  <Svg {...p}>
+    <path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9" />
+    <path d="M13.7 21a2 2 0 0 1-3.4 0" />
+  </Svg>
+);
+export const LogoutIcon = (p) => (
+  <Svg {...p}>
+    <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+    <path d="M10 17l5-5-5-5M15 12H3" />
+  </Svg>
+);
+export const EditIcon = (p) => (
+  <Svg {...p}>
+    <path d="M12 20h9" />
+    <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z" />
+  </Svg>
+);
+export const UploadIcon = (p) => (
+  <Svg {...p}>
+    <path d="M12 16V4M7 9l5-5 5 5M4 20h16" />
+  </Svg>
+);
+export const MenuIcon = (p) => (
+  <Svg {...p}>
+    <path d="M3 6h18M3 12h18M3 18h18" />
+  </Svg>
+);
+export const DollarIcon = (p) => (
+  <Svg {...p}>
+    <path d="M12 1.8v20.4" />
+    <path d="M16.5 6c0-1.7-2-2.8-4.5-2.8S7.8 4.3 7.8 6.2 9.8 9 12 9.4s4.7 1 4.7 3.1-2 3-4.7 3-4.7-1.1-4.7-2.9" />
+  </Svg>
+);
+export const PercentIcon = (p) => (
+  <Svg {...p}>
+    <path d="M19 5 5 19" />
+    <circle cx="6.5" cy="6.5" r="2.5" />
+    <circle cx="17.5" cy="17.5" r="2.5" />
+  </Svg>
+);
+export const ClockIcon = (p) => (
+  <Svg {...p}>
+    <circle cx="12" cy="12" r="9" />
+    <path d="M12 7.5v5l3.2 2" />
+  </Svg>
+);
+export const AlertTriangleIcon = (p) => (
+  <Svg {...p}>
+    <path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z" />
+    <path d="M12 9v4M12 17h.01" />
+  </Svg>
+);
+export const MapPinIcon = (p) => (
+  <Svg {...p}>
+    <path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z" />
+    <circle cx="12" cy="10" r="2.5" />
+  </Svg>
+);
+export const CreditCardIcon = (p) => (
+  <Svg {...p}>
+    <rect x="2" y="5" width="20" height="14" rx="2" />
+    <path d="M2 10h20" />
+  </Svg>
+);
+
 // ---- Category "product" glyphs (used when a product has no image) ----
 const GLYPHS = {
   lamp: ['M9 3h6l3 8H6z', 'M12 11v8', 'M8.5 21h7'],

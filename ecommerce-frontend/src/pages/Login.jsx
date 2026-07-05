@@ -20,15 +20,15 @@ export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // Where to go after logging in (a protected page may have sent us here).
-  const from = location.state?.from || '/';
-
   async function doLogin(creds) {
     setLoading(true);
     try {
-      await login(creds.email, creds.password);
+      const user = await login(creds.email, creds.password);
       showToast('Welcome back!');
-      navigate(from, { replace: true });
+      // If a protected page sent us here, go back to it. Otherwise send admins
+      // straight to the console and regular users to the storefront.
+      const destination = location.state?.from || (user.role === 'admin' ? '/admin' : '/');
+      navigate(destination, { replace: true });
     } catch (err) {
       showToast(err.response?.data?.message || 'Invalid credentials', 'error');
     } finally {

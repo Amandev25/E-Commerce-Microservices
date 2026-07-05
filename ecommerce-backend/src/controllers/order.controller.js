@@ -149,12 +149,13 @@ export const getMyOrders = async (req, res) => {
 // ONE order (owner or admin) ------------------------------
 export const getOrder = async (req, res) => {
   try {
-    const order = await Order.findById(req.params.id);
+    // Populate the customer so admins can see who placed the order.
+    const order = await Order.findById(req.params.id).populate('user', 'name email');
     if (!order) {
       return res.status(404).json({ success: false, message: 'Order not found' });
     }
-    // Ownership: your own order, or you're an admin.
-    const isOwner = order.user.toString() === req.user._id.toString();
+    // Ownership: your own order, or you're an admin. (user is populated, so use _id.)
+    const isOwner = order.user._id.toString() === req.user._id.toString();
     if (!isOwner && req.user.role !== 'admin') {
       return res.status(403).json({ success: false, message: 'Not allowed to view this order' });
     }
