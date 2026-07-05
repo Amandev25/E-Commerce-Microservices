@@ -4,11 +4,15 @@ import User from '../models/user.model.js';
 import { generateAccessToken, generateRefreshToken } from '../utils/token.js';
 
 // Settings for the refresh-token cookie (reused below).
+const isProd = config.nodeEnv === 'production';
 const cookieOptions = {
-  httpOnly: true,                            // JavaScript can't read it (safer)
-  secure: config.nodeEnv === 'production',   // HTTPS-only in production
-  sameSite: 'strict',
-  maxAge: 7 * 24 * 60 * 60 * 1000,           // 7 days
+  httpOnly: true,                       // JavaScript can't read it (safer)
+  secure: isProd,                       // HTTPS-only in production
+  // In production the frontend and backend live on different domains, so the
+  // cookie must be SameSite=None (which also requires Secure) to be sent.
+  // Locally, 'strict' is fine and a bit safer.
+  sameSite: isProd ? 'none' : 'strict',
+  maxAge: 7 * 24 * 60 * 60 * 1000,      // 7 days
 };
 
 // REGISTER -------------------------------------------------

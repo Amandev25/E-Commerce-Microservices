@@ -2,8 +2,9 @@ import axios from 'axios';
 
 // One axios instance for the whole app. Every request goes through here.
 const api = axios.create({
-  // All backend routes live under /api/v1 (see the Express app).
-  baseURL: 'http://localhost:5000/api/v1',
+  // In production, set VITE_API_URL (e.g. https://your-api.onrender.com/api/v1).
+  // Locally it falls back to the dev backend.
+  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api/v1',
   // Needed so the browser sends/receives the httpOnly refresh-token cookie.
   withCredentials: true,
 });
